@@ -1,0 +1,11 @@
+[Unit]
+Description=Connects the serial port to minipavi websocket service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/minitelws 'ws://go.minipavi.fr:8182/?url=http://www.minipavi.fr/minichat/'
+Restart=on-failure
+StandardOutput=append:%h/log_file
+
+[Install]
+WantedBy=default.target
